@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello World App</title>
+    <script src="/vue/vue.min.js"></script>
+    <script src="/vue-router/vue-router.js"></script>
+    <script src="/fundamental-vue/fundamentalvue.umd.min.js"></script>
+    <script src="/superagent/superagent.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    </link>
+    <link rel="stylesheet" type="text/css" href="/fiori-fundamentals/fiori-fundamentals.min.css">
+    </link>
+</head>
+
+<body>
+    <div id="app">
+        <transition name="fade">
+            <router-view></router-view>
+        </transition>
+    </div>
+</body>
+
+</html>
