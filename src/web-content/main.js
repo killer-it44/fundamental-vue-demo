@@ -35,33 +35,33 @@ window.onload = function () {
         }
     }
 
-    const Create = {
-        template: `
-            <div>
-                <FdFormSet>
-                    <FdFormItem>
-                        <FdFormLabel>Text</FdFormLabel>
-                        <FdInput v-model="text" placeholder="short text"/>
-                    </FdFormItem>
-                    <FdFormItem>
-                        <FdFormLabel>Description</FdFormLabel>
-                        <FdInput v-model="description" placeholder="description"/>
-                    </FdFormItem>
-                </FdFormSet>
-                <FdButton @click="save">Save ToDo</FdButton>
-            </div>
-        `,
-        data: function () {
-            return { text: '', description: '' }
-        },
-        methods: {
-            save: async function () {
-                this.$data.status = 'to do'
-                await superagent.post('api/todos').send(this.$data)
-                this.$router.push('/')
-            }
-        }
-    }
+    // const Create = {
+    //     template: `
+    //         <div>
+    //             <FdFormSet>
+    //                 <FdFormItem>
+    //                     <FdFormLabel>Text</FdFormLabel>
+    //                     <FdInput v-model="text" placeholder="short text"/>
+    //                 </FdFormItem>
+    //                 <FdFormItem>
+    //                     <FdFormLabel>Description</FdFormLabel>
+    //                     <FdInput v-model="description" placeholder="description"/>
+    //                 </FdFormItem>
+    //             </FdFormSet>
+    //             <FdButton @click="save">Save ToDo</FdButton>
+    //         </div>
+    //     `,
+    //     data: function () {
+    //         return { text: '', description: '' }
+    //     },
+    //     methods: {
+    //         save: async function () {
+    //             this.$data.status = 'to do'
+    //             await superagent.post('api/todos').send(this.$data)
+    //             this.$router.push('/')
+    //         }
+    //     }
+    // }
 
     const Details = {
         template: `
@@ -94,7 +94,7 @@ window.onload = function () {
             routes: [
                 { path: '/', component: Overview },
                 { path: '/details/:id', component: Details },
-                { path: '/create', component: Create }
+                { path: '/create', component: () => import('./Create.js') }
             ]
         })
     })
