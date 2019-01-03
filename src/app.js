@@ -10,6 +10,7 @@ app.use('/vue-router', express.static(__dirname + '/../node_modules/vue-router/d
 app.use('/fundamental-vue', express.static(__dirname + '/../node_modules/fundamental-vue/dist/'))
 app.use('/fiori-fundamentals', express.static(__dirname + '/../node_modules/fiori-fundamentals/dist/'))
 app.use('/superagent', express.static(__dirname + '/../node_modules/superagent/'))
+app.use('/requirejs', express.static(__dirname + '/../node_modules/requirejs/'))
 
 app.use(express.json())
 app.use('/api/todos', todos)

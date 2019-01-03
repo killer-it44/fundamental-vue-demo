@@ -18,6 +18,7 @@
     "dependencies": {
         "express": "^4.16.4",
         "fundamental-vue": "0.0.6-beta",
+        "requirejs": "^2.3.6",
         "superagent": "^4.0.0",
         "vue": "^2.5.21",
         "vue-router": "^3.0.2"
