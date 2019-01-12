@@ -9,10 +9,20 @@ const NO_CONTENT = 204
 const NOT_FOUND = 404
 
 router.get('/', function getAll(req, res) {
-    const all = Object.keys(todos).map(function (key) {
+    const allTodos = Object.keys(todos).map(function (key) {
         return todos[key]
     })
-    res.json(all)
+    res.json(allTodos)
+})
+
+router.get('/suggestions/:filter', function makeSuggestion(req, res) {
+    const filteredKeys = Object.keys(todos).filter(function (key) {
+        return todos[key].text.indexOf(req.params.filter) > -1
+    })
+    const filteredTodos = filteredKeys.map(function (key) {
+        return todos[key]
+    })
+    res.json(filteredTodos)
 })
 
 router.get('/:id', function getDetails(req, res) {
