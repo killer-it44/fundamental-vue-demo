@@ -69,6 +69,10 @@ describe('app', function () {
         suggestions = suggestionsResponse.body
         expect(suggestions.length).toBe(2)
 
+        suggestionsResponse = await client.get('/api/todos/suggestions/').expect(200)
+        suggestions = suggestionsResponse.body
+        expect(suggestions.length).toBe(0)
+
         await client.delete(`/api/todos/${id1}`).expect(204)
         await client.delete(`/api/todos/${id2}`).expect(204)
     })

@@ -15,7 +15,7 @@ router.get('/', function getAll(req, res) {
     res.json(allTodos)
 })
 
-router.get('/suggestions/:filter', function makeSuggestion(req, res) {
+router.get('/suggestions/:filter?', function makeSuggestion(req, res) {
     const filteredKeys = Object.keys(todos).filter(function (key) {
         return todos[key].text.indexOf(req.params.filter) > -1
     })
